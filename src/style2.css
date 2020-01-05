@@ -1,0 +1,27 @@
+.Team{
+    display: grid;
+    grid-template-columns:200px 250px 200px 400px;
+    grid-gap: 15px;
+    font-size: 20px;
+    margin-left:10%;
+    padding: 5px;
+  border: solid 2px ghostwhite;
+  margin-right: 10%;
+    }
+    ul#item li{
+     display: inline; 
+    
+       
+    }
+    #first{
+        font-weight: bold;
+    margin-top: 2%;
+    margin-right:5%;
+
+    }
+    #second{
+        font-size: 15px;
+       padding-left:22% ;
+
+    }
+     
