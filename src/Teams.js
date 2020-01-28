@@ -4,7 +4,8 @@ import {
     Card, CardText, CardBody,
     CardTitle
   } from 'reactstrap';
-
+  import Tool from './tooltip';
+  import { Paper, Grid, Typography, Tooltip } from '@material-ui/core';
 class Teams extends React.Component {
 
     constructor(props) {
@@ -40,27 +41,39 @@ class Teams extends React.Component {
         const { isLoaded, items } = this.state;
 
         if (!isLoaded)
-            return <div>Loading...</div>;
-        return (
+            return (
+                <Paper><Grid team lg={3} style={{ marginTop: "10 auto" }}>
+            <Typography style={{ margin:"40px 40px 40px 40px", textAlign: "center" }} variant="h2">
+                Loading...
+            </Typography>
+        </Grid></Paper> )
+           
+        return ( <Paper>
             <div className="Team">
               
                     {items.map(item => ( 
   
-                    <Card key={item.id} data-toggle="popover" title= {item.full_name} data-content="{item.city}{item.destination}">
+                    <Card key={item.id}>
+                         <Tool
+                                team_name={item.full_name} 
+                                city={item.city}
+                                division={item.division}
+                                conference={item.conference}
+                                >
                     <CardBody>
                       <CardTitle id="first" >{item.name}</CardTitle>
                       <CardText id="second">{item.city}</CardText>
-                    </CardBody> 
+                    </CardBody> </Tool>
                   </Card>
                   
                   ))}
                 
             </div>
+            </Paper>
         );
 
     }
 
 }
-// https://coreui.io/docs/components/popovers/
 
 export default Teams;
